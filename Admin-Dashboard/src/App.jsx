@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Header from './Components/layout/Headar.jsx';
+import Dashboard from './Components/Dashboard/Dashboard.jsx';
 import Sidebar from './Components/layout/Sidebar.jsx';
 
 const App = () => {
@@ -7,7 +8,7 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState('dashboard');
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50
+    <div className=' min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50
     dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 transition-all duration-500'>
       <div className='flex h-screen overflow-hidden'>
         <Sidebar
@@ -21,6 +22,11 @@ const App = () => {
             sideBarClosed={sideBarClosed}
             onToggle={() => setSidebarClosed(!sideBarClosed)}
           />
+        <main className='flex-1 overflow-y-auto bg-transparent'>
+          <div className='p-6 space-y-6'>
+            {currentPage === 'dashboard' && <Dashboard />}
+          </div>
+        </main>
         </div>
       </div>
     </div>
